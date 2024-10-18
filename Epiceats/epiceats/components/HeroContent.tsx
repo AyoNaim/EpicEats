@@ -1,30 +1,36 @@
-'use client'
-import React from 'react'
+import React, { useEffect } from 'react'
 import NavLinks from './NavLinks'
-import { geistMono, geistSans } from '@/app/layout'
+import localFont from 'next/font/local';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/all';
+
+
+const geistMono = localFont({
+  src: "../app/fonts/GeistMonoVF.woff",
+  variable: "--font-geist-mono",
+  weight: "100 900",
+});
 
 const HeroContent = () => {
   gsap.registerPlugin(useGSAP);
   gsap.registerPlugin(ScrollTrigger);
   useGSAP(() => {
-   const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: '.navlink',
-      pin: true,
-      start: 'top top',
-      end: 'bottom top',
-      scrub: 1,
-    }
-   })
-   tl.to('.navlink', {
-    y: 50,
-    duration: 3,
-    delay: 1,
-    stagger: 1.5
-   })
+    gsap.to('.navlink', {
+      y: -100,
+      // skewX: 10,
+      rotation: 5,
+      stagger: 0.5,
+      delay: 1,
+      scrollTrigger: {
+        trigger: '.navlink',
+        start: 'top center',
+        end: 'bottom top',
+        scrub: 1,
+        pin: true,
+        toggleActions: 'play reverse play reverse'
+      }
+    })
   })
   return (
     <section className='w-full h-screen bg-green-500 flex justify-center items-center'>
