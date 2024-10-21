@@ -5,7 +5,7 @@ type LinkProps = {
     text: string,
     type: string,
     icon: string,
-    className: string
+    className?: string
 } 
 const NavLinks = ({text, type, icon, className}: LinkProps) => {
   return (

@@ -17,9 +17,12 @@ const HeroContent = () => {
   gsap.registerPlugin(ScrollTrigger);
   useGSAP(() => {
     gsap.to('.navlink', {
-      y: -100,
+      y: -400,
       // skewX: 10,
       rotation: 5,
+      rotateX: 5,
+      rotateY: 5,
+      rotateZ: 5,
       stagger: 0.5,
       delay: 1,
       scrollTrigger: {
