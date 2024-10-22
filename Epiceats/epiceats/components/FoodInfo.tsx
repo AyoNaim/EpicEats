@@ -7,20 +7,19 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
+  DialogClose
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
 type openType = {
-  open: boolean
+  open: boolean,
+  onClose: () => void
 }
 
-export function FoodInfo({open}: openType) {
+export function FoodInfo({open, onClose}: openType) {
   return (
-    <Dialog open={open}>
-      <DialogTrigger asChild>
-        <Button variant="outline">Edit Profile</Button>
-      </DialogTrigger>
+    <Dialog open={open} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>Edit profile</DialogTitle>
@@ -51,7 +50,11 @@ export function FoodInfo({open}: openType) {
           </div>
         </div>
         <DialogFooter>
-          <Button type="submit" onClick={() => {!open}}>Save changes</Button>
+        <DialogClose asChild>
+            <Button type="button" variant="secondary">
+              Close
+            </Button>
+          </DialogClose>
         </DialogFooter>
       </DialogContent>
     </Dialog>
