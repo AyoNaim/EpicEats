@@ -1,8 +1,7 @@
 import React from 'react'
-import localFont from 'next/font/local';
-import NavLinks from './NavLinks';
-import { useGSAP } from '@gsap/react';
-import { ScrollTrigger } from 'gsap/all';
+import localFont from 'next/font/local'
+import NavLinks from './NavLinks'
+
 
 const geistMono = localFont({
   src: "../app/fonts/GeistMonoVF.woff",
