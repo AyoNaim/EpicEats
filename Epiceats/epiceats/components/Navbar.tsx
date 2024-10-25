@@ -16,9 +16,7 @@ const Navbar = () => {
           <NavLinks text='contact' type='contact' icon='./arrow.svg' />
         </div>
         <div className='block lg:hidden'>
-          <Link href={'./'}>
-            <img src='./menu.svg' alt='hamburger' width={40}  height={40}/>
-          </Link>
+          <></>
         </div>
       </div>    
     </nav>

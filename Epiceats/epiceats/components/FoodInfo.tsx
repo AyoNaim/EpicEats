@@ -32,9 +32,9 @@ export function FoodInfo({open, onClose}: openType) {
           <p>Cusine Name: Truffle Risotto</p>
           <p>Origin: Italy</p>
           <p>Price: $2999.99</p>
-          <NavLinks text="Make a reservation" type="reservation" icon="arrow.svg" className="md:mt-14"/>
+          <NavLinks text="Make a reservation" type="reservation" icon="arrow.svg" className="md:mt-14 hover:bg-red-500"/>
         </div>
-        <div className={`md:col-span-2 flex flex-col justify-between items-center gap-2 ${geistMono.className}`}>
+        <div className={`md:col-span-2 flex flex-col justify-between gap-1 ${geistMono.className}`}>
           <p className="font-bold">A Taste of Luxury, Priced Just Right</p>
           <p className="text-wrap">At Epiceats, we offer the finest dishes, crafted with premium ingredients and impeccable attention to detail. Experience bold flavors and luxurious presentations, all at an accessible price. Enjoy exceptional dining that delivers both elegance and value, where quality is never compromised.</p>
         </div>

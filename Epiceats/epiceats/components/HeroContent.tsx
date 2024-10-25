@@ -45,7 +45,7 @@ const HeroContent = () => {
                 </div>
                 <div className='flex justify-start items-start'>
                   <div className='flex justify-center items-center mt-10'>
-                    <p> How can we help you? </p>
+                    <p className={`${geistMono.className}`}>How can we help you? </p>
                   </div>
                   <div className='flex flex-col justify-start items-center gap-4'>
                     <NavLinks className='navlink' text='I would like to see what you are doing' type='food' icon='./arrow.svg' />
