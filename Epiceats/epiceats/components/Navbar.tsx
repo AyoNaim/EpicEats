@@ -1,6 +1,7 @@
 import React from 'react'
 import NavLinks from './NavLinks'
 import Link from 'next/link'
+import { MobileNav } from './MobileNav'
 
 const Navbar = () => {
   return (
@@ -16,7 +17,7 @@ const Navbar = () => {
           <NavLinks text='contact' type='contact' icon='./arrow.svg' />
         </div>
         <div className='block lg:hidden'>
-          <></>
+          <MobileNav />
         </div>
       </div>    
     </nav>

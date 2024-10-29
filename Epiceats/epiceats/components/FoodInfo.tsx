@@ -14,6 +14,8 @@ import { Label } from "@/components/ui/label"
 import { geistMono } from "@/Customfonts"
 import { CarouselDemo } from "./Carousel"
 import NavLinks from "./NavLinks"
+import { redirect } from "next/navigation"
+import { useRouter } from "next/router"
 
 type openType = {
   open: boolean,
@@ -21,6 +23,10 @@ type openType = {
 }
 
 export function FoodInfo({open, onClose}: openType) {
+  const handleBtnClick = () => {
+    const router = useRouter();
+    router.push('/payment')
+  }
   return (
     <Dialog open={open} onOpenChange={onClose}>
       <DialogContent className="w-[350px] h-[700px] md:w-[800px] md:h-[500px] rounded-lg flex justify-center items-center">
@@ -32,7 +38,7 @@ export function FoodInfo({open, onClose}: openType) {
           <p>Cusine Name: Truffle Risotto</p>
           <p>Origin: Italy</p>
           <p>Price: $2999.99</p>
-          <NavLinks text="Make a reservation" type="reservation" icon="arrow.svg" className="md:mt-14 hover:bg-red-500"/>
+          <NavLinks text="Make a reservation" type="reservation" icon="arrow.svg" className="md:mt-14 hover:bg-red-500" onClick={handleBtnClick} />
         </div>
         <div className={`md:col-span-2 flex flex-col justify-between gap-1 ${geistMono.className}`}>
           <p className="font-bold">A Taste of Luxury, Priced Just Right</p>

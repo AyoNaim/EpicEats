@@ -11,6 +11,9 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
+import Link from 'next/link'
+import NavLinks from "./NavLinks"
+import { geistMono } from "@/Customfonts"
 
 export function MobileNav() {
   return (
@@ -20,32 +23,21 @@ export function MobileNav() {
             <img src='./menu.svg' alt='hamburger' width={40}  height={40}/>
         </Link>
       </SheetTrigger>
-      <SheetContent>
-        <SheetHeader>
-          <SheetTitle>Edit profile</SheetTitle>
-          <SheetDescription>
-            Make changes to your profile here. Click save when you're done.
-          </SheetDescription>
-        </SheetHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Name
-            </Label>
-            <Input id="name" value="Pedro Duarte" className="col-span-3" />
+      <SheetContent className="flex justify-end items-center">
+        <div className="h-full w-11/12 bg-red-500 flex flex-col justify-start items-center">
+          <div className="h-1/3 w-full bg-blue-500 flex justify-end">
+            <NavLinks text="Developer" type="contact" icon="arrow.svg" className="hover:bg-red-500"/>
           </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              Username
-            </Label>
-            <Input id="username" value="@peduarte" className="col-span-3" />
+          <div className={`h-2/3 w-full bg-amber-500 flex flex-col justify-evenly text-4xl ${geistMono.className}`}>
+            <Link href={'./'}><p className="text-green-600">Home</p></Link>
+            <Link href={'./'} className="transition-all duration-500 hover:text-green-500"><p>Cuisines</p></Link>
+            <Link href={'./'} className="hover:text-green-500"><p>Reservations</p></Link>
+            <Link href={'./'} className="hover:text-green-500"><p>Contact</p></Link>
+          </div>
+          <div className="h-1/3 w-full bg-red-500 flex justify-start items-end">
+            <div className="bg-white w-1/3 h-2/3"></div>
           </div>
         </div>
-        <SheetFooter>
-          <SheetClose asChild>
-            <Button type="submit">Save changes</Button>
-          </SheetClose>
-        </SheetFooter>
       </SheetContent>
     </Sheet>
   )

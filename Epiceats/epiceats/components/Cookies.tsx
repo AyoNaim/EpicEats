@@ -1,7 +1,6 @@
 'use client'
 import React, { useState } from 'react'
 import { Button } from './ui/button'
-import { geistMono } from '@/app/layout'
 
 
 const Cookies = () => {
@@ -10,7 +9,7 @@ const Cookies = () => {
         setopenCookies(false)
     }
   return (
-    <div className={`${openCookies ? 'bg-red-500 w-screen bottom-0 h-80 lg:h-32 flex justify-center items-center border border-black' : 'opacity-0 hidden'} `}>
+    <div className={`${openCookies ? 'bg-red-500 w-screen fixed bottom-0 h-80 lg:h-32 flex justify-center items-center border border-black' : 'opacity-0 hidden'} `}>
         <div className='w-11/12 h-5/6 flex flex-col gap-3'>
             <div className='flex items-start justify-start'>
                 <p className='font-semibold text-lg'>We value your privacy</p>
