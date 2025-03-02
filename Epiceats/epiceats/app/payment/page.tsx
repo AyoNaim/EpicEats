@@ -1,29 +1,26 @@
-import React, {useState, useEffect} from "react";
-import { EmbeddedCheckout, EmbeddedCheckoutProvider } from "@stripe/react-stripe-js";
-import { loadStripe } from "@stripe/stripe-js";
-import { createCheckoutSession } from "../actions/checkout";
+"use client"
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
+import React from 'react'
+import {
+    EmbeddedCheckout,
+    EmbeddedCheckoutProvider
+} from '@stripe/react-stripe-js'
+import { fetchClientSecret } from '../actions/checkout'
+import { loadStripe } from '@stripe/stripe-js'
 
-export default function Checkout() {
-    const [clientSecret, setclientSecret] = useState('');
-    useEffect(() => {
-        async function fetchSession() {
-            try {
-                const session = await createCheckoutSession();
-                                
-            } catch (error:any) {
-                console.log(error)
-            }
-        }
-    }, [])
-    
-    return (
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!)
+
+const payment = () => {
+  return (
+    <section>
         <EmbeddedCheckoutProvider
             stripe={stripePromise}
-            options={}
+            options={{ fetchClientSecret }}
         >
-            <EmbeddedCheckout/>
+          <EmbeddedCheckout />
         </EmbeddedCheckoutProvider>
-    )
+    </section>
+  )
 }
+
+export default payment

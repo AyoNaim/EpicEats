@@ -1,22 +1,18 @@
 "use server"
 
-import Stripe from "stripe";
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
+import stripe from "@/utils/stripe"
 
-export async function createCheckoutSession() {
-    try {
-        const session = await stripe.checkout.sessions.create({
-            mode: 'payment',
-            ui_mode: 'embedded',
-            line_items: [
-                {
-                    price: 'price_1QFtEkFveiJZYzXgEpDDc0Mm',
-                    quantity: 1
-                }
-            ],
-        })
-        return { clientSecret: session.client_secret}
-    } catch (error:any) {
-        console.log(error)
-    }
+export async function fetchClientSecret() {
+    const session = await stripe.checkout.sessions.create({
+        ui_mode: 'embedded',
+        line_items: [
+            {
+                price: 'price_1QFtEkFveiJZYzXgEpDDc0Mm',
+                quantity: 1
+            }
+        ],
+        mode: 'payment',
+        return_url: 'https://3000-ayonaim-epiceats-54r7dio3aqu.ws-eu117.gitpod.io/success'
+    })
+    return session.client_secret;
 }
